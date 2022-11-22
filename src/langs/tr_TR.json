@@ -1,3 +1,15 @@
 {
+  "home": {
     "intro": "Bu uygulama, şifrelerinizi oluşturmanıza ve gizlemenize olanak tanır"
+  },
+  "generate": {
+    "header": "Şifre Oluşturucu",
+    "charLength": "Karakter Uzunluğu",
+    "upper": "Büyük harfleri Dahil Et",
+    "lower": "Küçük harfleri Dahil Et",
+    "number": "Numaraları Dahil Et",
+    "symbol": "Sembolleri Dahil Et",
+    "strength": "KUVVET",
+    "generate": "OLUŞTUR"
+  }
 }

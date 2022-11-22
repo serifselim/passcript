@@ -18,7 +18,7 @@ export const useLangStore = defineStore("lang", {
       this.setLangToLS();
     },
     switchData() {
-      return this.currentLang === "en-EN" ? tr_TR : en_EN;
+      return this.currentLang === "en-EN" ? en_EN : tr_TR;
     },
     setLangToLS() {
       localStorage.setItem("lang", this.currentLang);
@@ -28,6 +28,7 @@ export const useLangStore = defineStore("lang", {
       if (data) {
         this.currentLang = data;
         this.currentData = this.switchData();
+        console.log(this.currentData);
       }
     },
   },

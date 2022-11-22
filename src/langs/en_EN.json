@@ -1,3 +1,15 @@
 {
+  "home": {
     "intro": "This app allows you to create and hide your passwords"
+  },
+  "generate": {
+    "header": "Password Generator",
+    "charLength": "Character Length",
+    "upper": "Include Uppercase Letters",
+    "lower": "Include Lowercase Letters",
+    "number": "Include Numbers",
+    "symbol": "Include Symbols",
+    "strength": "STRENGTH",
+    "generate": "GENERATE"
+  }
 }
