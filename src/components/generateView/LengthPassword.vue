@@ -2,18 +2,34 @@
   <div class="generate-length">
     <div class="generate-length-up">
       <h3>{{ charLength }}</h3>
-      <h1>0</h1>
+      <h1>{{ getPasswordLength }}</h1>
     </div>
     <div class="generate-length-down">
-      <input type="range" class="slider" max="12" min="6" />
+      <input type="range" class="slider" max="12" v-model="length" min="6" />
     </div>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from "pinia"
+import { useGenerateStore } from "../../stores/generate"
 export default {
   name: "LengthPassword",
   props: ["charLength"],
-};
+  data: () => ({
+    length: 6,
+  }),
+  computed: {
+    ...mapState(useGenerateStore, ["getPasswordLength"]),
+  },
+  methods: {
+    ...mapActions(useGenerateStore, ["setPasswordLength"]),
+  },
+  watch: {
+    length() {
+      this.setPasswordLength(this.length)
+    },
+  },
+}
 </script>
 <style scoped>
 .generate-length {
@@ -44,7 +60,6 @@ export default {
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 100%;
   height: 10px;
   background: var(--color-dark);

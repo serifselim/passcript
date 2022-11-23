@@ -4,11 +4,14 @@
       <div class="header">
         <h1 class="title">{{ currentData.generate.header }}</h1>
       </div>
-      <show-password />
+      <show-password
+        :toastText="currentData.global.toastText"
+        :letsGenerate="currentData.generate.letsGenerate"
+      />
       <div class="generate">
         <length-password :charLength="currentData.generate.charLength" />
         <option-password :generate="currentData.generate" />
-        <result-password :strength="currentData.generate.strength" />
+        <strength-password :strength="currentData.generate.strength" />
         <action-password :generate="currentData.generate.generate" />
       </div>
     </div>
@@ -16,16 +19,16 @@
 </template>
 <script>
 // Pinia
-import { mapState } from "pinia";
-import { useLangStore } from "../stores/lang";
+import { mapState } from "pinia"
+import { useLangStore } from "../stores/lang.js"
 // Compoents
 import {
   ShowPassword,
   LengthPassword,
   OptionPassword,
-  ResultPassword,
+  StrengthPassword,
   ActionPassword,
-} from "../components/generateView";
+} from "../components/generateView"
 
 export default {
   name: "GenerateView",
@@ -37,10 +40,10 @@ export default {
     ShowPassword,
     LengthPassword,
     OptionPassword,
-    ResultPassword,
+    StrengthPassword,
     ActionPassword,
   },
-};
+}
 </script>
 <style>
 .container {

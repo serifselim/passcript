@@ -10,6 +10,10 @@
     "number": "Include Numbers",
     "symbol": "Include Symbols",
     "strength": "STRENGTH",
-    "generate": "GENERATE"
+    "generate": "GENERATE",
+    "letsGenerate": "Let's Generate !"
+  },
+  "global": {
+    "toastText": "Password was copied !"
   }
 }

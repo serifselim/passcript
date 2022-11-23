@@ -4,19 +4,25 @@
       <h1>{{ strength }}</h1>
 
       <div class="result-level">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div
+          v-for="(x, i) in getPasswordStrength"
+          :key="i"
+          :class="x ? 'true' : 'false'"
+        ></div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapState } from "pinia"
+import { useGenerateStore } from "../../stores/generate"
 export default {
-  name: "ResultPassword",
+  name: "StrengthPassword",
   props: ["strength"],
-};
+  computed: {
+    ...mapState(useGenerateStore, ["getPasswordStrength"]),
+  },
+}
 </script>
 <style scoped>
 .result .result-box {
@@ -38,8 +44,12 @@ export default {
   align-items: stretch;
 }
 
-.result .result-box .result-level div {
+.result .result-box .result-level .false {
   border: 1.5px solid white;
+  width: 13px;
+}
+.result .result-box .result-level .true {
+  background: var(--color-primary);
   width: 13px;
 }
 </style>

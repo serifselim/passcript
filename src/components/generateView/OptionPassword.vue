@@ -1,28 +1,36 @@
 <template>
   <div class="options">
+    <h1>{{ getIsAnyTrueQuery }}</h1>
     <div>
-      <input type="checkbox" id="upper" value="1" />
+      <input type="checkbox" v-model="queries.isUpper" id="upper" value="1" />
       <label for="upper">{{ generate.upper }}</label>
     </div>
     <div>
-      <input type="checkbox" id="lower" value="1" />
+      <input type="checkbox" v-model="queries.isLower" id="lower" value="1" />
       <label for="lower">{{ generate.lower }}</label>
     </div>
     <div>
-      <input type="checkbox" id="number" value="1" />
+      <input type="checkbox" v-model="queries.isNumber" id="number" value="1" />
       <label for="number">{{ generate.number }}</label>
     </div>
     <div>
-      <input type="checkbox" id="symbol" value="1" />
+      <input type="checkbox" v-model="queries.isSymbol" id="symbol" value="1" />
       <label for="symbol">{{ generate.symbol }}</label>
     </div>
   </div>
 </template>
 <script>
+// Pinia
+import { mapState } from "pinia"
+import { useGenerateStore } from "../../stores/generate"
+
 export default {
   name: "OptionPassword",
   props: ["generate"],
-};
+  computed: {
+    ...mapState(useGenerateStore, ["queries"]),
+  },
+}
 </script>
 <style scoped>
 .generate .options {
@@ -30,7 +38,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   row-gap: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .generate .options label {

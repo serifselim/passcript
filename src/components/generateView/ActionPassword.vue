@@ -1,23 +1,33 @@
 <template>
   <div class="action">
-    <button>
+    <button @click="generatePassword" :disabled="!getIsAnyTrueQuery">
       {{ generate }}
       <i class="gg-arrow-long-right-c"></i>
     </button>
   </div>
 </template>
 <script>
+// Pinia
+import { mapActions, mapState } from "pinia"
+import { useGenerateStore } from "../../stores/generate"
+
 export default {
   name: "ActionPassword",
   props: ["generate"],
-};
+  computed: {
+    ...mapState(useGenerateStore, ["getIsAnyTrueQuery"]),
+  },
+  methods: {
+    ...mapActions(useGenerateStore, ["generatePassword"]),
+  },
+}
 </script>
 <style scoped>
-.context .generate .action {
+.action {
   width: 100%;
 }
 
-.context .generate .action button {
+.action button {
   width: 100%;
   display: flex;
   align-items: center;
@@ -30,9 +40,16 @@ export default {
   padding: 30px;
   border-radius: 10px;
   cursor: pointer;
+  border: none;
+  transition: background-color 0.4s ease-in;
 }
 
-.context .generate .action button:hover {
+.action button:disabled {
+  background-color: brown;
+  cursor: default;
+}
+
+.action button:hover {
   opacity: 0.8;
 }
 

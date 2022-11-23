@@ -22,5 +22,4 @@ button {
 input {
   background: var(--color-gray);
   color: var(--color-dark);
-  text-transform: uppercase;
 }

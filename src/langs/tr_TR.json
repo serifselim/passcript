@@ -10,6 +10,10 @@
     "number": "Numaraları Dahil Et",
     "symbol": "Sembolleri Dahil Et",
     "strength": "KUVVET",
-    "generate": "OLUŞTUR"
+    "generate": "OLUŞTUR",
+    "letsGenerate": "Hadi Oluşturalım !"
+  },
+  "global": {
+    "toastText": "Şifre kopyalandı !"
   }
 }
