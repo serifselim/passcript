@@ -2,6 +2,15 @@
   "home": {
     "intro": "This app allows you to create and hide your passwords"
   },
+  "header": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "logIn": "Log In"
+  },
   "generate": {
     "header": "Password Generator",
     "charLength": "Character Length",
@@ -14,6 +23,7 @@
     "letsGenerate": "Let's Generate !"
   },
   "global": {
-    "toastText": "Password was copied !"
+    "toastText": "Password was copied !",
+    "authToastText": "Login successful"
   }
 }

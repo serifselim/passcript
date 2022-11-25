@@ -2,6 +2,15 @@
   "home": {
     "intro": "Bu uygulama, şifrelerinizi oluşturmanıza ve gizlemenize olanak tanır"
   },
+  "header": {
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol"
+  },
+  "login": {
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "logIn": "Giriş Yap"
+  },
   "generate": {
     "header": "Şifre Oluşturucu",
     "charLength": "Karakter Uzunluğu",
@@ -14,6 +23,7 @@
     "letsGenerate": "Hadi Oluşturalım !"
   },
   "global": {
-    "toastText": "Şifre kopyalandı !"
+    "toastText": "Şifre kopyalandı !",
+    "authToastText": "Giriş başarılı"
   }
 }

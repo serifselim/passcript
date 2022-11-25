@@ -1,12 +1,20 @@
 <template>
   <div id="toast-success" class="toast" role="alert">
-    <div class="toast-text">{{ text }}</div>
+    <div class="toast-text" :id="info">{{ text }}</div>
   </div>
 </template>
 <script>
 export default {
   name: "Toast",
-  props: ["text"],
+  props: {
+    text: {
+      type: String,
+    },
+    info: {
+      type: String,
+      default: () => "success",
+    },
+  },
 }
 </script>
 <style scoped>
@@ -29,6 +37,17 @@ export default {
   font-size: 18px;
   text-align: center;
   font-weight: 500;
+}
+
+#success {
   color: var(--color-primary);
+}
+
+#warning {
+  color: yellow;
+}
+
+#danger {
+  color: red;
 }
 </style>

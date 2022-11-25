@@ -1,6 +1,5 @@
 <template>
   <div class="options">
-    <h1>{{ getIsAnyTrueQuery }}</h1>
     <div>
       <input type="checkbox" v-model="queries.isUpper" id="upper" value="1" />
       <label for="upper">{{ generate.upper }}</label>

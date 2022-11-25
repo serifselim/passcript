@@ -3,6 +3,7 @@
     <input
       readonly
       class="show-input"
+      :class="{ changed: isChanged }"
       :value="getPassword"
       :placeholder="letsGenerate"
     />
@@ -24,6 +25,7 @@ export default {
   props: ["letsGenerate", "toastText"],
   data: () => ({
     isCopied: false,
+    isChanged: false,
   }),
   computed: {
     ...mapState(useGenerateStore, ["getPassword"]),
@@ -34,6 +36,14 @@ export default {
       this.isCopied = true
       setTimeout(() => {
         this.isCopied = false
+      }, 1000)
+    },
+  },
+  watch: {
+    getPassword() {
+      this.isChanged = true
+      setTimeout(() => {
+        this.isChanged = false
       }, 1000)
     },
   },
@@ -59,6 +69,7 @@ export default {
   border: none;
   min-height: 50px;
   color: var(--color-gray-text);
+  transition: color 0.5s ease-out;
 }
 
 .show-input .show .show-input:focus {
@@ -71,6 +82,10 @@ export default {
 
 .show-copy:hover {
   opacity: 0.8;
+}
+
+.changed {
+  color: var(--color-primary) !important;
 }
 
 .gg-copy {

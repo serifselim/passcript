@@ -23,3 +23,11 @@ input {
   background: var(--color-gray);
   color: var(--color-dark);
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
