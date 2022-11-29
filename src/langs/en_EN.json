@@ -4,12 +4,23 @@
   },
   "header": {
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "logOut": "Log out"
   },
   "login": {
     "username": "Username",
     "password": "Password",
-    "logIn": "Log In"
+    "logIn": "Log In",
+    "signIn": "Sign In"
+  },
+  "list": {
+    "name": "Name",
+    "add": "Add",
+    "password": "Password",
+    "secretKey": "Secret Key",
+    "actions": "Actions",
+    "decrypt": "Decrypt",
+    "delete": "Delete"
   },
   "generate": {
     "header": "Password Generator",
@@ -24,6 +35,8 @@
   },
   "global": {
     "toastText": "Password was copied !",
-    "authToastText": "Login successful"
+    "authToastText": "Login successful",
+    "registerToastText": "Register successful",
+    "registerErrorToastText": "Please try again !"
   }
 }

@@ -11,15 +11,32 @@ export const useUserStore = defineStore("user", {
     getCurrentUser: ({ currentUser }) => currentUser,
   },
   actions: {
-    setNewUser(user) {
-      const newUser = {
-        userId: uuidv4(),
-        username: user.username,
-        password: this.encryptedPassword(user.password),
+    logOut() {
+      localStorage.removeItem("user")
+      this.currentUser = null
+    },
+    isThereSameUser(username) {
+      const activeUser = this.users.find((x) => x.username === username)
+      if (activeUser) {
+        return true
+      } else {
+        return false
       }
-      this.users = [...this.users, newUser]
-      localStorage.setItem("user", JSON.stringify(newUser))
-      localStorage.setItem("users", JSON.stringify(this.users))
+    },
+    setNewUser(user) {
+      if (this.isThereSameUser(user.username)) {
+        console.log("same")
+        return false
+      } else {
+        const newUser = {
+          userId: uuidv4(),
+          username: user.username,
+          password: this.encryptedPassword(user.password),
+        }
+        this.users = [...this.users, newUser]
+        localStorage.setItem("users", JSON.stringify(this.users))
+        return true
+      }
     },
     loginUser(user) {
       const activeUser = this.users.find((x) => x.username === user.username)
@@ -27,6 +44,7 @@ export const useUserStore = defineStore("user", {
         const truePassword = this.decryptedPassword(activeUser.password)
         if (truePassword === user.password) {
           this.currentUser = activeUser
+          localStorage.setItem("user", JSON.stringify(this.currentUser))
           return true
         } else {
           return false

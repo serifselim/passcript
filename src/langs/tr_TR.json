@@ -4,12 +4,23 @@
   },
   "header": {
     "login": "Giriş Yap",
-    "register": "Kayıt Ol"
+    "register": "Kayıt Ol",
+    "logOut": "Çıkış Yap"
   },
   "login": {
     "username": "Kullanıcı Adı",
     "password": "Şifre",
-    "logIn": "Giriş Yap"
+    "logIn": "Giriş Yap",
+    "signIn": "Kayıt Ol"
+  },
+  "list": {
+    "name": "Ad",
+    "add": "Ekle",
+    "password": "Şifre",
+    "secretKey": "Güvenlik Anahtarı",
+    "actions": "Etkileşimler",
+    "decrypt": "Çöz",
+    "delete": "Sil"
   },
   "generate": {
     "header": "Şifre Oluşturucu",
@@ -24,6 +35,8 @@
   },
   "global": {
     "toastText": "Şifre kopyalandı !",
-    "authToastText": "Giriş başarılı"
+    "authToastText": "Giriş başarılı",
+    "registerToastText": "Kayıt oluşturma başarılı",
+    "registerErrorToastText": "Lütfen tekrar deneyin !"
   }
 }

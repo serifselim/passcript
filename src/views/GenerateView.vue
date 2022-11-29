@@ -45,11 +45,11 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .container {
   max-width: 576px;
   height: 70%;
-  margin-inline: auto;
+  margin: 30px auto 0 auto;
 }
 
 .context {

@@ -10,12 +10,17 @@ import {
 } from "../views"
 
 const routes = [
-  { path: "/", component: HomeView },
-  { path: "/login", component: LoginView },
-  { path: "/register", component: RegisterView },
+  { path: "/", component: HomeView, meta: { requiresAuth: false } },
+  { path: "/login", component: LoginView, meta: { requiresAuth: false } },
+  { path: "/register", component: RegisterView, meta: { requiresAuth: false } },
   {
     path: "/generate",
     component: GenerateView,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/list",
+    component: ListView,
     meta: { requiresAuth: true },
   },
   {
@@ -38,11 +43,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   let requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const { currentUser } = useUserStore()
-  if (!requiresAuth) {
-    next()
-  } else if (requiresAuth && !currentUser) {
+  if (requiresAuth && !currentUser) {
     next({ path: "/login" })
-  } else if (requiresAuth && currentUser) {
+  } else if (!requiresAuth && currentUser) {
+    next({ path: "/generate" })
+  } else {
     next()
   }
 })

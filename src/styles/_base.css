@@ -17,11 +17,30 @@ body {
 
 button {
   background: var(--color-primary);
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:disabled {
+  background-color: brown;
+  color: var(--color-dark);
 }
 
 input {
   background: var(--color-gray);
   color: var(--color-dark);
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+input:focus {
+  outline: none;
 }
 
 li {

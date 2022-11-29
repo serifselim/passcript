@@ -6,7 +6,7 @@
       </div>
 
       <nav>
-        <ul>
+        <ul v-if="!getCurrentUser">
           <li>
             <router-link to="/login">
               {{ getCurrentData.header.login }}
@@ -16,6 +16,14 @@
             <router-link to="/register">
               {{ getCurrentData.header.register }}
             </router-link>
+          </li>
+        </ul>
+
+        <ul v-else>
+          <li>
+            <a @click="handleLogOut">
+              {{ getCurrentData.header.logOut }}
+            </a>
           </li>
         </ul>
       </nav>
@@ -32,16 +40,28 @@
 //Pinia
 import { mapState, mapActions } from "pinia"
 import { useLangStore } from "../../stores/lang"
+import { useUserStore } from "../../stores/user"
 export default {
   name: "HeaderVue",
   computed: {
     ...mapState(useLangStore, ["getCurrentLang", "getCurrentData"]),
+    ...mapState(useUserStore, ["getCurrentUser"]),
   },
   methods: {
     handleClick() {
       this.$router.push("/")
     },
+    handleLogOut() {
+      this.logOut()
+      this.$router.push("/login")
+    },
     ...mapActions(useLangStore, ["switchLang", "getLangFromLS"]),
+    ...mapActions(useUserStore, ["logOut"]),
+  },
+  watch: {
+    getCurrentUser() {
+      console.log(this.getCurrentUser, "CURRENT USER")
+    },
   },
 }
 </script>
@@ -86,6 +106,7 @@ export default {
   font-size: 18px;
   color: white;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .header .header-context nav ul li a:hover {
