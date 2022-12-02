@@ -25,7 +25,6 @@ export const useUserStore = defineStore("user", {
     },
     setNewUser(user) {
       if (this.isThereSameUser(user.username)) {
-        console.log("same")
         return false
       } else {
         const newUser = {
@@ -51,18 +50,20 @@ export const useUserStore = defineStore("user", {
         }
       }
     },
-    encryptedPassword(password) {
+    encryptedPassword(password, secretKey = import.meta.env.VITE_SECRET_KEY) {
       return CryptoJS.AES.encrypt(
         JSON.stringify(password),
-        import.meta.env.VITE_SECRET_KEY
+        secretKey
       ).toString()
     },
-    decryptedPassword(ciphertext) {
-      const bytes = CryptoJS.AES.decrypt(
-        ciphertext,
-        import.meta.env.VITE_SECRET_KEY
-      )
-      return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+
+    decryptedPassword(ciphertext, secretKey = import.meta.env.VITE_SECRET_KEY) {
+      const bytes = CryptoJS.AES.decrypt(ciphertext, secretKey)
+      try {
+        return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+      } catch (error) {
+        return false
+      }
     },
     autoAuthUser() {
       const user = JSON.parse(localStorage.getItem("user"))

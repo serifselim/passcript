@@ -1,11 +1,14 @@
 {
   "home": {
-    "intro": "Bu uygulama, şifrelerinizi oluşturmanıza ve gizlemenize olanak tanır"
+    "intro": "Bu uygulama, şifrelerinizi oluşturmanıza ve gizlemenize olanak tanır",
+    "secondIntro": "Sağlam şifrelerinizi daha basit şekilde saklayabilir ve kullanabilirsiniz. Hemen deneyin ve şifrelerinizi yazmak ve akılda tutmak zorunda kalmayın"
   },
   "header": {
     "login": "Giriş Yap",
     "register": "Kayıt Ol",
-    "logOut": "Çıkış Yap"
+    "logOut": "Çıkış Yap",
+    "generate": "Oluştur",
+    "list": "Liste"
   },
   "login": {
     "username": "Kullanıcı Adı",
@@ -37,6 +40,7 @@
     "toastText": "Şifre kopyalandı !",
     "authToastText": "Giriş başarılı",
     "registerToastText": "Kayıt oluşturma başarılı",
+    "wrongAuth": "Yanlış kullanıcı adı ya da şifresi !",
     "registerErrorToastText": "Lütfen tekrar deneyin !"
   }
 }

@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
-import tr_TR from "../langs/tr_TR.json";
-import en_EN from "../langs/en_EN.json";
+import { defineStore } from "pinia"
+import tr_TR from "../langs/tr_TR.json"
+import en_EN from "../langs/en_EN.json"
 
 export const useLangStore = defineStore("lang", {
   state: () => ({
@@ -13,23 +13,22 @@ export const useLangStore = defineStore("lang", {
   },
   actions: {
     switchLang() {
-      this.currentLang = this.currentLang === "en-EN" ? "tr-TR" : "en-EN";
-      this.currentData = this.switchData();
-      this.setLangToLS();
+      this.currentLang = this.currentLang === "en-EN" ? "tr-TR" : "en-EN"
+      this.currentData = this.switchData()
+      this.setLangToLS()
     },
     switchData() {
-      return this.currentLang === "en-EN" ? en_EN : tr_TR;
+      return this.currentLang === "en-EN" ? en_EN : tr_TR
     },
     setLangToLS() {
-      localStorage.setItem("lang", this.currentLang);
+      localStorage.setItem("lang", this.currentLang)
     },
     getLangFromLS() {
-      const data = localStorage.getItem("lang");
+      const data = localStorage.getItem("lang")
       if (data) {
-        this.currentLang = data;
-        this.currentData = this.switchData();
-        console.log(this.currentData);
+        this.currentLang = data
+        this.currentData = this.switchData()
       }
     },
   },
-});
+})

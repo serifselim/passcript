@@ -1,15 +1,22 @@
 <template>
-  <form class="list-form">
+  <form @submit.prevent="handleSubmit" class="list-form">
     <div class="list-form-up">
       <div class="list-form-item">
         <label for="name">{{ list.name }}</label>
-        <input id="name" type="text" required placeholder="EXAMPLE_NAME" />
+        <input
+          v-model.trim="password.name"
+          id="name"
+          type="text"
+          required
+          placeholder="EXAMPLE_NAME"
+        />
       </div>
       <div class="list-form-item">
         <label for="password">{{ list.password }}</label>
         <input
           id="password"
           type="password"
+          v-model.trim="password.password"
           required
           placeholder="I9JUICNSHxsaAWF11"
         />
@@ -19,22 +26,40 @@
         <input
           id="secretKey"
           type="password"
+          v-model.trim="password.secretKey"
           required
           placeholder="SECRET_KEY"
         />
       </div>
     </div>
     <div class="list-form-down">
-      <button disabled class="list-form-button">
+      <button :disabled="!areFill" class="list-form-button">
         {{ list.add }}
       </button>
     </div>
   </form>
 </template>
 <script>
+import { mapActions } from "pinia"
+import { usePasswordStore } from "../../stores/password"
 export default {
   name: "AddItem",
   props: ["list"],
+  data: () => ({
+    password: {},
+  }),
+  computed: {
+    areFill() {
+      return Object.values(this.password).every((x) => x)
+    },
+  },
+  methods: {
+    handleSubmit() {
+      this.addNewPasswordToList(this.password)
+      this.password = {}
+    },
+    ...mapActions(usePasswordStore, ["addNewPasswordToList"]),
+  },
 }
 </script>
 <style scoped>

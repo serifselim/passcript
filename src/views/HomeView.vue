@@ -5,6 +5,9 @@
         <h1>
           {{ getCurrentData.home.intro }}
         </h1>
+        <h3>
+          {{ getCurrentData.home.secondIntro }}
+        </h3>
       </div>
       <div class="background">
         <img width="400" src="../assets/background.svg" alt="" />
@@ -36,5 +39,16 @@ export default {
 }
 .home .home-context .home-title {
   margin: 140px 0 70px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home .home-context .home-title h3 {
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 550px;
 }
 </style>

@@ -54,6 +54,8 @@ export default {
         this.showToast().then(() => {
           this.$router.push("/generate")
         })
+      } else {
+        alert(this.getCurrentData.global.wrongAuth)
       }
     },
     async showToast() {

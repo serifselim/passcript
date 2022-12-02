@@ -1,11 +1,14 @@
 {
   "home": {
-    "intro": "This app allows you to create and hide your passwords"
+    "intro": "This app allows you to create and hide your passwords",
+    "secondIntro": "You can store and use your strong passwords in a simpler way, try them now and do not have to write and remember your passwords."
   },
   "header": {
     "login": "Login",
     "register": "Register",
-    "logOut": "Log out"
+    "logOut": "Log out",
+    "generate": "Generate",
+    "list": "List"
   },
   "login": {
     "username": "Username",
@@ -37,6 +40,7 @@
     "toastText": "Password was copied !",
     "authToastText": "Login successful",
     "registerToastText": "Register successful",
+    "wrongAuth": "Wrong password or username !",
     "registerErrorToastText": "Please try again !"
   }
 }

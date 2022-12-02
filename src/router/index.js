@@ -46,7 +46,7 @@ router.beforeEach((to, from, next) => {
   if (requiresAuth && !currentUser) {
     next({ path: "/login" })
   } else if (!requiresAuth && currentUser) {
-    next({ path: "/generate" })
+    next({ path: "/list" })
   } else {
     next()
   }

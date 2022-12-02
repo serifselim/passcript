@@ -21,6 +21,16 @@
 
         <ul v-else>
           <li>
+            <router-link to="/list">
+              {{ getCurrentData.header.list }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/generate">
+              {{ getCurrentData.header.generate }}
+            </router-link>
+          </li>
+          <li>
             <a @click="handleLogOut">
               {{ getCurrentData.header.logOut }}
             </a>
@@ -58,11 +68,6 @@ export default {
     ...mapActions(useLangStore, ["switchLang", "getLangFromLS"]),
     ...mapActions(useUserStore, ["logOut"]),
   },
-  watch: {
-    getCurrentUser() {
-      console.log(this.getCurrentUser, "CURRENT USER")
-    },
-  },
 }
 </script>
 <style scoped>
@@ -81,6 +86,7 @@ export default {
 }
 
 .header .header-context .header-context-logo {
+  font-family: "M PLUS 1 Code", sans-serif;
   margin: 0 auto 0 20px;
   cursor: pointer;
 }
