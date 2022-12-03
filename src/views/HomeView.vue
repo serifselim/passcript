@@ -44,6 +44,10 @@ export default {
   align-items: center;
 }
 
+.home .home-context .home-title h1{
+  text-align: center;
+}
+
 .home .home-context .home-title h3 {
   font-weight: 500;
   font-style: italic;
